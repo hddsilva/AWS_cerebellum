@@ -1,0 +1,23 @@
+{
+    "LaunchTemplateName":"increase-ebs-60G",
+    "LaunchTemplateData": {
+        "BlockDeviceMappings": [
+          {
+            "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 60,
+              "VolumeType": "gp2"
+            },
+            "DeviceName": "/dev/xvda"
+          },
+          {
+            "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 75,
+              "VolumeType": "gp2"
+            },
+            "DeviceName": "/dev/xvdcz"
+          }          
+        ]
+  }
+}

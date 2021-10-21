@@ -1,0 +1,28 @@
+{
+    "jobName": "maget-job",
+    "jobQueue": "maget",
+    "jobDefinition": "run-maget",
+        "arrayProperties": {
+    	"size": 6
+    },
+    "containerOverrides": {
+    	"environment": [
+            {
+                "name": "Group",
+                "value": "W1_Eur_Achieva_Grp1"
+            },
+            {
+                "name": "batchNum",
+                "value": "11"
+            }
+        ]         
+    },
+    "dependsOn": [
+    	{
+    		"jobId": "7f6c6de2-dfa7-4977-8e81-b5df43d84fe8"
+    	},
+		{
+    		"type": "SEQUENTIAL"
+    	}
+    ]
+}

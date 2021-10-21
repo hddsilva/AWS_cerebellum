@@ -1,0 +1,24 @@
+{
+    "jobName": "maget-job",
+    "jobQueue": "maget",
+    "jobDefinition": "run-maget",
+    "containerOverrides": {
+    	"command": [
+        	"MAGeT_JobScript.sh"
+        ],
+    	"environment": [
+            {
+                "name": "BATCH_FILE_S3_URL",
+                "value": "s3://scripts-abcdgruen/MAGeT_JobScript.sh"
+            },
+            {
+                "name": "Group",
+                "value": "W1_Eur_Prisma_Grp2"
+            },
+            {
+                "name": "aSub",
+                "value": "ndar_invznn6jk3k"
+            }
+        ]         
+    }
+}

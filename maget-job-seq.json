@@ -1,0 +1,25 @@
+{
+    "jobName": "maget-job",
+    "jobQueue": "maget",
+    "jobDefinition": "run-maget",
+        "arrayProperties": {
+    	"size": 3
+    },
+    "containerOverrides": {
+    	"environment": [
+            {
+                "name": "Group",
+                "value": "W1_Eur_Ingenia_Grp1"
+            },
+            {
+                "name": "batchNum",
+                "value": "03"
+            }
+        ]         
+    },
+    "dependsOn": [
+		{
+    		"type": "SEQUENTIAL"
+    	}
+    ]
+}

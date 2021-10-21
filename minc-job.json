@@ -1,0 +1,24 @@
+{
+    "jobName": "minc-job",
+    "jobQueue": "minc",
+    "jobDefinition": "run-minc",
+    "containerOverrides": {
+    	"command": [
+        	"MINC_JobScript.sh"
+        ],
+    	"environment": [
+            {
+                "name": "startingNum",
+                "value": "14"
+            },
+            {
+                "name": "Group",
+                "value": "W1_Eur_Achieva_Grp1"
+            },
+            {
+                "name": "ZeroDigit",
+                "value": ""
+            }
+        ]         
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "jobName": "store-job",
+    "jobQueue": "store",
+    "jobDefinition": "run-store",
+    "containerOverrides": {
+    	"environment": [
+            {
+                "name": "Group",
+                "value": "W1_Eur_PriFit_Grp1"
+            }
+        ]       
+    }
+}

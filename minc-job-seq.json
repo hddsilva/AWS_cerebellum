@@ -1,0 +1,29 @@
+{
+    "jobName": "minc-job-seq",
+    "jobQueue": "minc",
+    "jobDefinition": "run-minc",
+    "arrayProperties": {
+    	"size": 3
+    },
+    "containerOverrides": {
+    	"environment": [
+            {
+                "name": "startingNum",
+                "value": "10"
+            },
+            {
+                "name": "Group",
+                "value": "W1_Eur_Ingenia_Grp1"
+            },
+            {
+                "name": "ZeroDigit",
+                "value": ""
+            }
+        ]         
+    },
+    "dependsOn": [
+		{
+    		"type": "SEQUENTIAL"
+    	}
+    ]
+}

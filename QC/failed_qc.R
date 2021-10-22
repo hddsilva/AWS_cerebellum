@@ -5,7 +5,7 @@
 library(dplyr)
 
 #Load in data
-data <- read.table("W1_Eur_Ingenia_Grp1/W1_Eur_Ingenia_Grp1.csv", 
+data <- read.table("W1_Eur_Prisma_Grp3/W1_Eur_Prisma_Grp3.csv", 
                    header = TRUE, sep = ",")
 
 #Count of QC pass/fails
@@ -24,11 +24,11 @@ failed_maget <- data %>%
   mutate(Subj = tolower(Subj))
 
 #Write out list
-write.table(failed_minc, file=paste("W1_Eur_Ingenia_Grp1/failed_minc.txt",
+write.table(failed_minc, file=paste("W1_Eur_Prisma_Grp3/failed_minc.txt",
                                     sep=""), 
             sep="\t", row.names = FALSE,
             col.names = FALSE, quote = FALSE)
-write.table(failed_maget, file=paste("W1_Eur_Ingenia_Grp1/failed_maget.txt",
+write.table(failed_maget, file=paste("W1_Eur_Prisma_Grp3/failed_maget.txt",
                                     sep=""), 
             sep="\t", row.names = FALSE,
             col.names = FALSE, quote = FALSE)

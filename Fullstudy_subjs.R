@@ -114,7 +114,7 @@ table(Subjs$RACE_ETHNICITY)
 table(Subjs$RACE_ETHNICITY, Subjs$MRI_INFO_MANUFACTURERSMN)
 
 #The $5000 grant will cover processing about 2732 children. For now, will process
-#European kids from the Prisma_fit, Prisma, Achieva dStream, and Ingenia to get us to 2669.
+#European kids from the Prisma_fit, Prisma, Achieva dStream, and Ingenia to get us to 2648.
 
 #Create the 1st wave
 Wave1 <- Subjs %>% 

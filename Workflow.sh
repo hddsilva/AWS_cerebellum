@@ -137,6 +137,22 @@ exit
 #Save out the volume data
 aws s3 cp ~/${Group}.csv s3://results-abcdgruen/
 
+#### Running the Maybe's
+#Move into Maybe folder
+Group=[GroupName]
+for aSub in $(cat /Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/QC/${Group}/maybe_minc.txt)
+do
+	aws s3 mv s3://data-abcdgruen/${Group}/minc_bpipe_output/bad/ s3://data-abcdgruen/${Group}/minc_bpipe_output/maybe/ --recursive --exclude "*" --include "${aSub}*" --profile haileyw 
+done
+#Create batch ids
+Group=[GroupName]
+aws s3 ls s3://data-abcdgruen/${Group}/minc_bpipe_output/maybe/ --profile haileyw | grep -o "\<ndar_..........." > ~/Desktop/batch_ids/${Group}.txt
+split -a 2 -d -l 10 [Group].txt maybe_batch_
+for f in maybe_batch_*; do mv "$f" "$f.txt"; done
+#Edit MAGeT_JobScript_seq.sh to take "maybe_batch"
+#Run maget jobs as usual
+
+
 ####Store the data
 #Register a job definition (only need to do this once)
 aws batch register-job-definition --cli-input-json file://store_jobdefinition.json --profile haileyw

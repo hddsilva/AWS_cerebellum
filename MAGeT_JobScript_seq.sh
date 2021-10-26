@@ -5,9 +5,9 @@ date
 
 PATH="$PATH:/opt/minc-toolkit-extras:/opt/iterativeN4:/opt/ANTs/bin:/opt/bpipe/bpipe-0.9.9.9/bin:/opt/minc-stuffs/bin:/opt/MAGeTbrain/bin/:/opt/minc/1.9.18/bin:/opt/minc/1.9.18/pipeline"
 
-aws s3 cp s3://data-abcdgruen/${Group}/batch_ids/maget/ /maget/ --recursive --exclude "*" --include "maget_batch_${batchNum}.txt"
+aws s3 cp s3://data-abcdgruen/${Group}/batch_ids/maget/ /maget/ --recursive --exclude "*" --include "maybe_batch_${batchNum}.txt"
 LINE=$((AWS_BATCH_JOB_ARRAY_INDEX + 1))
-aSub=$(sed -n ${LINE}p /maget/maget_batch_${batchNum}.txt)
+aSub=$(sed -n ${LINE}p /maget/maybe_batch_${batchNum}.txt)
 
 echo "Group is ${Group}"
 echo "Subject is ${aSub}"
@@ -47,7 +47,7 @@ else
 fi
 
 echo "Copying subject data"
-	aws s3 cp s3://data-abcdgruen/${Group}/minc_bpipe_output/ /maget/input/subjects/brains --recursive --exclude "*" --include "${aSub}*.mnc"
+	aws s3 cp s3://data-abcdgruen/${Group}/minc_bpipe_output/maybe/ /maget/input/subjects/brains --recursive --exclude "*" --include "${aSub}*.mnc"
 
 echo "Running the MAGeT voting command"
 mb run vote -q parallel -j 10

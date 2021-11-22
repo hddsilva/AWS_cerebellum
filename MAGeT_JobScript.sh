@@ -43,7 +43,7 @@ else
 fi
 
 echo "Copying subject data"
-	aws s3 cp s3://data-abcdgruen/${Group}/minc_bpipe_output/ /maget/input/subjects/brains/ --recursive --exclude "*" --include "${aSub}*.mnc"
+	aws s3 cp s3://data-abcdgruen/${Group}/minc_bpipe_output/maybe/ /maget/input/subjects/brains/ --recursive --exclude "*" --include "${aSub}*.mnc"
 
 echo "Running the MAGeT voting command"
 mb run vote -q parallel -j 10

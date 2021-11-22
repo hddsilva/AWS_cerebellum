@@ -37,7 +37,7 @@
         "privileged": true
     },
     "retryStrategy": {
-		"attempts": 2,
+		"attempts": 3,
 		"evaluateOnExit": [
 			{
 			  "onStatusReason": "Host EC2*",

@@ -35,7 +35,7 @@ done
 
 echo "Running bpipe"
 cd /maget/output_files/batchNum_${batchNum}
-bpipe run -n 12 /opt/minc-bpipe-library/pipeline.bpipe /maget/input_files/*mnc #n flag is number of participants
+bpipe run -n 13 /opt/minc-bpipe-library/pipeline.bpipe /maget/input_files/*mnc #n flag is number of participants
 
 echo "Copying data to S3"
 aws s3 cp /maget/output_files/batchNum_${batchNum}/  s3://data-abcdgruen/${Group}/minc_bpipe_output/ --recursive --exclude "*" --include "*.n4correct.cutneckapplyautocrop.beastextract.mnc"

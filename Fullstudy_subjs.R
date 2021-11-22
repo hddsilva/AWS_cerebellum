@@ -120,7 +120,8 @@ table(Subjs$RACE_ETHNICITY, Subjs$MRI_INFO_MANUFACTURERSMN)
 Wave1 <- Subjs %>% 
   filter(RACE_ETHNICITY == 1,
          MRI_INFO_MANUFACTURERSMN == "Prisma" | MRI_INFO_MANUFACTURERSMN == "Prisma_fit" |
-           MRI_INFO_MANUFACTURERSMN == "Achieva dStream" | MRI_INFO_MANUFACTURERSMN == "Ingenia")
+           MRI_INFO_MANUFACTURERSMN == "Achieva dStream" | MRI_INFO_MANUFACTURERSMN == "Ingenia" |
+           MRI_INFO_MANUFACTURERSMN == "DISCOVERY MR750")
 
 #See the count of Wave 1 participants by collection site
 table(Wave1$MRI_INFO_DEVICESERIALNUMBER, Wave1$MRI_INFO_MANUFACTURERSMN)
@@ -155,6 +156,18 @@ W1_Eur_Ingenia_Grp1 <- Wave1 %>%
   select(SUBJECTKEY, ENDPOINT) %>% arrange(SUBJECTKEY)
 W1_Eur_Achieva_Grp1 <- Wave1 %>% 
   filter(MRI_INFO_DEVICESERIALNUMBER == "HASHdb2589d4" | MRI_INFO_DEVICESERIALNUMBER == "HASH6b4422a7") %>% 
+  select(SUBJECTKEY, ENDPOINT) %>% arrange(SUBJECTKEY)
+
+W1_Eur_Discovery_Grp1 <- Wave1 %>% 
+  filter(MRI_INFO_DEVICESERIALNUMBER == "HASH4b0b8b05" | MRI_INFO_DEVICESERIALNUMBER == "HASHc3bf3d9c") %>% 
+  select(SUBJECTKEY, ENDPOINT) %>% arrange(SUBJECTKEY)
+W1_Eur_Discovery_Grp2 <- Wave1 %>% 
+  filter(MRI_INFO_DEVICESERIALNUMBER == "HASH48f7cbc3" | MRI_INFO_DEVICESERIALNUMBER == "HASH5b2fcf80" |
+           MRI_INFO_DEVICESERIALNUMBER == "HASH69f406fa" | MRI_INFO_DEVICESERIALNUMBER == "HASHd7cb4c6d" |
+           MRI_INFO_DEVICESERIALNUMBER == "HASHe3ce02d3" | MRI_INFO_DEVICESERIALNUMBER == "HASHfeb7e81a") %>% 
+  select(SUBJECTKEY, ENDPOINT) %>% arrange(SUBJECTKEY)
+W1_Eur_Discovery_Grp3 <- Wave1 %>% 
+  filter(MRI_INFO_DEVICESERIALNUMBER == "HASHa3e45734") %>% 
   select(SUBJECTKEY, ENDPOINT) %>% arrange(SUBJECTKEY)
 
 #Check Wave 1 groupings for errors
@@ -255,6 +268,39 @@ write.table(W1_Eur_Ingenia_Grp1_IDs, file=paste("/Volumes/Gruenlab-726014-YSM/ha
 write.table(W1_Eur_Ingenia_Grp1_s3, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Ingenia_Grp1_s3.txt",sep=""), sep="\t", row.names = FALSE,
             col.names = FALSE, quote = FALSE)
 write.table(W1_Eur_Ingenia_Grp1_sub, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Ingenia_Grp1_sub.txt",sep=""), sep="\t", row.names = FALSE,
+            col.names = FALSE, quote = FALSE)
+#W1_Eur_Discovery_Grp1
+W1_Eur_Discovery_Grp1_IDs <- W1_Eur_Discovery_Grp1 %>% select(SUBJECTKEY)
+W1_Eur_Discovery_Grp1_s3 <- W1_Eur_Discovery_Grp1 %>% select(ENDPOINT)
+W1_Eur_Discovery_Grp1_sub <- W1_Eur_Discovery_Grp1 %>% 
+  mutate(SUBJECTKEY_sub = paste("sub-",str_remove(SUBJECTKEY,"_"), sep="")) %>% select(SUBJECTKEY_sub)
+write.table(W1_Eur_Discovery_Grp1_IDs, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Discovery_Grp1_IDs.txt",sep=""), sep="\t", row.names = FALSE,
+            col.names = FALSE, quote = FALSE)
+write.table(W1_Eur_Discovery_Grp1_s3, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Discovery_Grp1_s3.txt",sep=""), sep="\t", row.names = FALSE,
+            col.names = FALSE, quote = FALSE)
+write.table(W1_Eur_Discovery_Grp1_sub, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Discovery_Grp1_sub.txt",sep=""), sep="\t", row.names = FALSE,
+            col.names = FALSE, quote = FALSE)
+#W1_Eur_Discovery_Grp2
+W1_Eur_Discovery_Grp2_IDs <- W1_Eur_Discovery_Grp2 %>% select(SUBJECTKEY)
+W1_Eur_Discovery_Grp2_s3 <- W1_Eur_Discovery_Grp2 %>% select(ENDPOINT)
+W1_Eur_Discovery_Grp2_sub <- W1_Eur_Discovery_Grp2 %>% 
+  mutate(SUBJECTKEY_sub = paste("sub-",str_remove(SUBJECTKEY,"_"), sep="")) %>% select(SUBJECTKEY_sub)
+write.table(W1_Eur_Discovery_Grp2_IDs, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Discovery_Grp2_IDs.txt",sep=""), sep="\t", row.names = FALSE,
+            col.names = FALSE, quote = FALSE)
+write.table(W1_Eur_Discovery_Grp2_s3, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Discovery_Grp2_s3.txt",sep=""), sep="\t", row.names = FALSE,
+            col.names = FALSE, quote = FALSE)
+write.table(W1_Eur_Discovery_Grp2_sub, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Discovery_Grp2_sub.txt",sep=""), sep="\t", row.names = FALSE,
+            col.names = FALSE, quote = FALSE)
+#W1_Eur_Discovery_Grp3
+W1_Eur_Discovery_Grp3_IDs <- W1_Eur_Discovery_Grp3 %>% select(SUBJECTKEY)
+W1_Eur_Discovery_Grp3_s3 <- W1_Eur_Discovery_Grp3 %>% select(ENDPOINT)
+W1_Eur_Discovery_Grp3_sub <- W1_Eur_Discovery_Grp3 %>% 
+  mutate(SUBJECTKEY_sub = paste("sub-",str_remove(SUBJECTKEY,"_"), sep="")) %>% select(SUBJECTKEY_sub)
+write.table(W1_Eur_Discovery_Grp3_IDs, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Discovery_Grp3_IDs.txt",sep=""), sep="\t", row.names = FALSE,
+            col.names = FALSE, quote = FALSE)
+write.table(W1_Eur_Discovery_Grp3_s3, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Discovery_Grp3_s3.txt",sep=""), sep="\t", row.names = FALSE,
+            col.names = FALSE, quote = FALSE)
+write.table(W1_Eur_Discovery_Grp3_sub, file=paste("/Volumes/Gruenlab-726014-YSM/hailey_dsilva/projects/AWS_cerebellum/FullStudy/ID_lists/W1_Eur_Discovery_Grp3_sub.txt",sep=""), sep="\t", row.names = FALSE,
             col.names = FALSE, quote = FALSE)
 
 #Check groupings for errors

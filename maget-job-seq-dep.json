@@ -3,7 +3,7 @@
     "jobQueue": "maget",
     "jobDefinition": "run-maget",
         "arrayProperties": {
-    	"size": 6
+    	"size": 11
     },
     "containerOverrides": {
     	"environment": [
@@ -13,13 +13,13 @@
             },
             {
                 "name": "batchNum",
-                "value": "11"
+                "value": "12"
             }
         ]         
     },
     "dependsOn": [
     	{
-    		"jobId": "7f6c6de2-dfa7-4977-8e81-b5df43d84fe8"
+    		"jobId": "a74727d0-a6da-40c7-845a-fc68a79c2a22"
     	},
 		{
     		"type": "SEQUENTIAL"

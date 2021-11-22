@@ -3,8 +3,8 @@
     "type": "container",
     "containerProperties": {
         "image": "168045869720.dkr.ecr.us-east-1.amazonaws.com/maget_fetchrun",
-        "vcpus": 16,
-        "memory": 27000,
+        "vcpus": 35,
+        "memory": 54000,
         "command": [
         	"MINC_JobScript_seq.sh"
         ],
@@ -37,7 +37,7 @@
         "privileged": true
     },
     "retryStrategy": {
-		"attempts": 2,
+		"attempts": 3,
 		"evaluateOnExit": [
 			{
 			  "onStatusReason": "Host EC2*",

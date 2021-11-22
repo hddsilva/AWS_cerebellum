@@ -13,12 +13,17 @@
             },
             {
                 "name": "Group",
-                "value": "W1_Eur_Prisma_Grp2"
+                "value": "W1_Eur_Prisma_Grp1"
             },
             {
                 "name": "aSub",
-                "value": "ndar_invznn6jk3k"
+                "value": "ndar_invag3vm3cr"
             }
         ]         
-    }
+    },
+    "dependsOn": [
+    	{
+    		"jobId": "a1cb346e-ba31-406a-a4ea-fa40ec307180"
+    	}
+    ]
 }

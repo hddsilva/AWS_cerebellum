@@ -3,17 +3,17 @@
     "jobQueue": "maget",
     "jobDefinition": "run-maget",
         "arrayProperties": {
-    	"size": 5
+    	"size": 10
     },
     "containerOverrides": {
     	"environment": [
             {
                 "name": "Group",
-                "value": "W1_Eur_PriFit_Grp2"
+                "value": "W1_Eur_Prisma_Grp3"
             },
             {
                 "name": "batchNum",
-                "value": "11"
+                "value": "01"
             }
         ]         
     },

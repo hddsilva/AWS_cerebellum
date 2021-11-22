@@ -3,21 +3,21 @@
     "jobQueue": "minc",
     "jobDefinition": "run-minc",
     "arrayProperties": {
-    	"size": 3
+    	"size": 5
     },
     "containerOverrides": {
     	"environment": [
             {
                 "name": "startingNum",
-                "value": "10"
+                "value": "5"
             },
             {
                 "name": "Group",
-                "value": "W1_Eur_Ingenia_Grp1"
+                "value": "W1_Eur_Discovery_Grp2"
             },
             {
                 "name": "ZeroDigit",
-                "value": ""
+                "value": "0"
             }
         ]         
     },

@@ -51,7 +51,7 @@ Subjs <- Demographics %>%
   left_join(Missing_Covars, by = c("SUBJECTKEY" = "SUBJECTKEY_avail")) %>%
   left_join(PilotIDs1, by = c("SUBJECTKEY" = "V1")) %>%
   left_join(PilotIDs2, by = c("SUBJECTKEY" = "V1")) %>%
-  left_join(T1_s3links2, by = c("SUBJECTKEY","MRI_INFO_STUDYDATE")) %>%
+  left_join(T1_s3links2, by = c("SUBJECTKEY","MRI_INFO_STUDYDATE")) %>% 
   #Create variables
   mutate(US_ReqTime = case_when(DEMO_ORIGIN_V2 == 189 ~ "Yes",
                                 (DEMO_ORIGIN_V2 != 189) & (DEMO_YEARS_US_V2 > 2.9) ~ "Yes",
@@ -62,9 +62,6 @@ Subjs <- Demographics %>%
          interview_date = dmy(INTERVIEW_DATE),
          nihtbx_picvocab_date = ymd(substr(NIHTBX_PICVOCAB_DATE, 1, 10)),
          nihtbx_reading_date = mdy(NIHTBX_READING_DATE),
-         pea_altdate = case_when(startsWith(PEA_ASSESSMENTDATE, "20") ~ 1),
-         pea_assessmentdate = case_when(pea_altdate == 1 ~ ymd(substr(PEA_ASSESSMENTDATE, 1, 10)),
-                                        is.na(pea_altdate) ~ dmy(substr(PEA_ASSESSMENTDATE, 6, 16))),
          mri_reading_gapDays = abs(nihtbx_reading_date - MRI_INFO_STUDYDATE),
          mri_picvocab_gapDays = abs(nihtbx_picvocab_date - MRI_INFO_STUDYDATE),
          mri_interview_gapDays = abs(interview_date - MRI_INFO_STUDYDATE)) %>% 

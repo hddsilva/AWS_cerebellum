@@ -131,7 +131,6 @@ do
 done
 #Launch the MAGeTDocker and collect volumes
 sudo docker run -i -v /home/ec2-user:/maget -t gdevenyi/magetdocker bash
-Group=[GroupName]
 collect_volumes.sh /maget/label-names.csv /maget/input/*beastextract_labels.mnc > /maget/${Group}.csv
 exit
 #Save out the volume data
@@ -164,7 +163,7 @@ do
         sed -i '' -e 's/'${aSub}'/NEWSUB/' maget-job.json
 done
 #Submit missing jobs to MAGeT dependently (have job IDs in a file)
-for num in {1..15}
+for num in {1..5}
 do
     aSub=$(sed -n ${num}p ~/Desktop/missing.txt)
     jobID=$(sed -n ${num}p ~/Desktop/jobids.txt)

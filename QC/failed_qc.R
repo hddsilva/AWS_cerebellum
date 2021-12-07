@@ -13,7 +13,7 @@ table(data$minc_bpipe_QC)
 
 #Create a list of subjects that failed
 failed_minc <- data %>%
-  filter(minc_bpipe_QC == "No" | minc_bpipe_QC == "Maybe") %>% 
+  filter(minc_bpipe_QC == "No") %>% 
   select(Subj) %>% 
   mutate(Subj = tolower(Subj))
 
@@ -26,6 +26,11 @@ failed_maget <- data %>%
   filter(MAGeT_QC == "No" | HD_decision == "No") %>% 
   select(Subj) %>% 
   mutate(Subj = tolower(Subj))
+
+#How many subjects passed
+passed <- nrow(data) - (nrow(failed_minc) + nrow(failed_maget))
+#What percent of subjects passed
+passed / nrow(data)
 
 #Write out list
 write.table(failed_minc, file=paste("W1_Eur_Ingenia_Grp1/failed_minc.txt",
